@@ -3,9 +3,10 @@ var inquirer = require("inquirer");
 var fs = require('fs');
 var result = [];
 //start game
-//CLI - prompt user to select a movie genre from choices
-//WORD - randomly select a title from word constructor for that genre - put into array
-//WORD - replace all letters in the word with _
+//- prompt user to select a movie genre from choicesX
+//movies - randomly select a title from word constructor for that genre - put into array
+//WORD - replace all letters in the word with _ and run thru letter prototype to turn to false
+//LETTER - build constructor to take each individual character of the phrase and build some characteristics into it - known - false
 //CLI - display _array to player and ask for the first letter - convert to upper case
 //LETTER - if letter is in word, say correct and replace _ with letter
 //LETTER - in the word holder array and say guess a letter
@@ -56,11 +57,13 @@ inquirer
             console.log("genre" + genre);
             var currentSelection = Math.floor((Math.random() * 3));
             //console.log(currentSelection);
-            for (var i = 0; i < movies[genre].length; i++) {
-                movies[genre][currentSelection]
-            }
+            // for (var i = 0; i < movies[genre].length; i++) {
+            //     movies[genre][currentSelection];
             var currentWord = (movies[genre][currentSelection]);
-            function word(currentSelection);
+            console.log(currentWord);
+            Word(currentWord)
+              
+
         }
 
     });

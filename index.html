@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+
+  <!-- link to CSS stylesheet in the assets/css directory -->
+   
+
+</head>
+
+<body>
+
+	<script>
+		var currentWord = "The Godfather"
+
+
+		populateLetters = function(currentWord){
+        var currentWordArray = currentWord.split([""]);
+        for (let i=0; i<currentWordArray.length; i++){
+            this.letters.push(new Letter(currentWordArray[i]));
+            console.log(currentWordArray);
+        }
+    }
+    populateLetters(currentWord);
+	
+	</script>
+
+</body>
+</html>
