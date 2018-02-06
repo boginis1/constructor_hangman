@@ -1,35 +1,20 @@
 // dependency for inquirer npm package
 var inquirer = require("inquirer");
-var fs = require('fs');
-var result = [];
 
-
-
-//start game
-//- prompt user to select a movie genre from choicesX
-//movies - randomly select a title from word constructor for that genre - put into array
-//WORD - replace all letters in the word with _ and run thru letter prototype to turn to false
-//LETTER - build constructor to take each individual character of the phrase and build some characteristics into it - known - false
-//CLI - display _array to player and ask for the first letter - convert to upper case
-//LETTER - if letter is in word, say correct and replace _ with letter
-//LETTER - in the word holder array and say guess a letter
-//LETTER - if incorrect, say, wrong, choose another letter
-//LETTER 0 and say x guesses left - reduce guesses left by 1
-//WIN/LOSE - once all _ are gone, say you win, new word
-//WIN/LOSE or if incorrect letters guessed 8 times, and the 
-//WIN LOSE - word isn't complete, say, you lose.  new word
+//dependencies for constructors in other files
 var movies = require("./movies.js");
 var Letter = require("./letter.js");
 var Word = require("./word.js");
+//defining global variables
 var wordNow;
 var currentWord;
+//starts the game at the beginning
 startGame();
-// Asks User the genre information
+
 function startGame(){
+  // Asks User the genre information
    inquirer
     .prompt([
-
-
         // Here we give the user a list to choose from.
         {
             type: "list",
@@ -43,8 +28,7 @@ function startGame(){
         // whatever the user picks, we displays the inquirerResponse's genre from the movies.
         if (inquirerResponse.genre === "drama") {
             console.log("\nYou have chosen drama");
-            //console.log(inquirerResponse.genre);
-            //choose(inquirerResponse.genre);
+            
         } else if (inquirerResponse.genre === "romcom") {
             console.log("\nYou have chosen romcom");
             //choose(inquirerResponse.genre);
@@ -57,7 +41,7 @@ function startGame(){
             console.log("You have chosen thriller")
         }
 
-
+        //calls the choose function taking in the argument of the genre selected
         choose(inquirerResponse.genre);
 
       
@@ -67,15 +51,13 @@ function startGame(){
 }
 function choose(genre) {
 
-    console.log("genre" + genre);
+    //selects an item from between 0-2
     var currentSelection = Math.floor((Math.random() * 3));
-    //console.log(currentSelection);
-    // for (var i = 0; i < movies[genre].length; i++) {
-    //     movies[genre][currentSelection];
+    //currentWord becomes the holder for the name of the movie
     currentWord = (movies[genre][currentSelection]);
-    console.log(currentWord);
+    //defining wordNow as the current holder of this new phrase for the word constructor
     wordNow = new Word(currentWord)
-   //console.log(wordNow);
+   //call show in the word constructor
     wordNow.show();
     
     
