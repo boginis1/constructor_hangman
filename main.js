@@ -2,6 +2,9 @@
 var inquirer = require("inquirer");
 var fs = require('fs');
 var result = [];
+
+
+
 //start game
 //- prompt user to select a movie genre from choicesX
 //movies - randomly select a title from word constructor for that genre - put into array
@@ -18,8 +21,12 @@ var result = [];
 var movies = require("./movies.js");
 var Letter = require("./letter.js");
 var Word = require("./word.js");
+var wordNow;
+var currentWord;
+startGame();
 // Asks User the genre information
-inquirer
+function startGame(){
+   inquirer
     .prompt([
 
 
@@ -36,7 +43,7 @@ inquirer
         // whatever the user picks, we displays the inquirerResponse's genre from the movies.
         if (inquirerResponse.genre === "drama") {
             console.log("\nYou have chosen drama");
-            console.log(inquirerResponse.genre);
+            //console.log(inquirerResponse.genre);
             //choose(inquirerResponse.genre);
         } else if (inquirerResponse.genre === "romcom") {
             console.log("\nYou have chosen romcom");
@@ -53,19 +60,24 @@ inquirer
 
         choose(inquirerResponse.genre);
 
-        function choose(genre) {
-            console.log("genre" + genre);
-            var currentSelection = Math.floor((Math.random() * 3));
-            //console.log(currentSelection);
-            // for (var i = 0; i < movies[genre].length; i++) {
-            //     movies[genre][currentSelection];
-            var currentWord = (movies[genre][currentSelection]);
-            console.log(currentWord);
-            Word(currentWord)
-              
-
-        }
-
+      
     });
 
+  
+}
+function choose(genre) {
+
+    console.log("genre" + genre);
+    var currentSelection = Math.floor((Math.random() * 3));
+    //console.log(currentSelection);
+    // for (var i = 0; i < movies[genre].length; i++) {
+    //     movies[genre][currentSelection];
+    currentWord = (movies[genre][currentSelection]);
+    console.log(currentWord);
+    wordNow = new Word(currentWord)
+   //console.log(wordNow);
+    wordNow.show();
+    
+    
+} 
 

@@ -15,16 +15,27 @@
 
 	<script>
 		var currentWord = "The Godfather"
+    const Word = function(currentWord){
+      this.letters=[];
+      this.populateLettersOne = function(test){
+        console.log(" inside populateLettersOne")
+        console.log(this);
+      }
+  		var refToObject = this;
+      var populateLetters = function(currentWord){
+          // var currentWordArray = currentWord.split([""]);
+          // for (let i=0; i<currentWordArray.length; i++){
+          //     this.letters.push(new Letter(currentWordArray[i]));
+          //     console.log(currentWordArray);
+          // }
+          console.log(" inside populateLetters");
+          console.log(refToObject);
 
-
-		populateLetters = function(currentWord){
-        var currentWordArray = currentWord.split([""]);
-        for (let i=0; i<currentWordArray.length; i++){
-            this.letters.push(new Letter(currentWordArray[i]));
-            console.log(currentWordArray);
-        }
+      }
+      populateLetters(currentWord);
     }
-    populateLetters(currentWord);
+    var wordNow = new Word(currentWord);
+    wordNow.populateLettersOne("test");
 	
 	</script>
 
