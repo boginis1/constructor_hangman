@@ -27,18 +27,18 @@ function startGame(){
     .then(function(inquirerResponse) {
         // whatever the user picks, we displays the inquirerResponse's genre from the movies.
         if (inquirerResponse.genre === "drama") {
-            console.log("\nYou have chosen drama");
+            console.log("\nYou have chosen dramas");
             
         } else if (inquirerResponse.genre === "romcom") {
-            console.log("\nYou have chosen romcom");
+            console.log("\nYou have chosen Romantic Comedy");
             //choose(inquirerResponse.genre);
             // selectDrama(movies.romcom);
         } else if (inquirerResponse.genre === "classic") {
-            console.log("\nYou have chosen classic");
+            console.log("\nYou have chosen the Classics");
             //choose(inquirerResponse.genre);
             // selectDrama(movies.classic);
         } else {
-            console.log("You have chosen thriller")
+            console.log("You have chosen Thrillers")
         }
 
         //calls the choose function taking in the argument of the genre selected
